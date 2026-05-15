@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahra Callista – Sihat Anggun Menawan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --crimson: #7A1020;
+  --crimson-deep: #4A0810;
+  --crimson-light: #A8293B;
+  --gold: #C9A84C;
+  --gold-light: #E2C97A;
+  --gold-pale: #F5EDCC;
+  --cream: #FDF6EC;
+  --warm-white: #FFFBF4;
+  --text-dark: #1C0A0E;
+  --text-mid: #4A2030;
+  --text-muted: #7A5060;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito Sans', sans-serif; background: var(--warm-white); color: var(--text-dark); overflow-x: hidden; }
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: var(--crimson-deep);
+  padding: 0.35rem 3rem;
+  display: flex; justify-content: flex-end; align-items: center;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+.lang-btn {
+  background: none; border: 1px solid rgba(201,168,76,0.3);
+  color: rgba(255,255,255,0.7); padding: 0.2rem 0.8rem;
+  font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+  cursor: pointer; font-family: 'Nunito Sans', sans-serif;
+  transition: all 0.3s; margin-left: 0.4rem;
+}
+.lang-btn.active { background: var(--gold); color: var(--crimson-deep); border-color: var(--gold); font-weight: 600; }
+.lang-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 28px; left: 0; right: 0; z-index: 100;
+  background: rgba(74,8,16,0.96);
+  backdrop-filter: blur(12px);
+  padding: 1rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid rgba(201,168,76,0.25);
+  transition: padding 0.3s, box-shadow 0.3s;
+}
+nav.scrolled { padding: 0.7rem 3rem; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold-light); letter-spacing: 0.05em; cursor: pointer; }
+.nav-logo span { font-style: italic; color: var(--gold); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; }
+.nav-links a:hover { color: var(--gold-light); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold-light); padding: 0.5rem 1.4rem; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; text-decoration: none; font-family: 'Nunito Sans', sans-serif; }
+.nav-cta:hover { background: var(--gold); color: var(--crimson-deep); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideLeft { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideRight { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+@keyframes goldPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); } 50% { box-shadow: 0 0 20px 4px rgba(201,168,76,0.2); } }
+@keyframes floatWA { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+@keyframes counterUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes lineDraw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.reveal-scale { opacity: 0; transform: scale(0.93); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--crimson-deep) 0%, var(--crimson) 55%, #2A0408 100%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 9rem 3rem 5rem;
+}
+.hero-orb1 {
+  position: absolute; width: 700px; height: 700px; border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.08);
+  top: -150px; right: -200px;
+  animation: rotateSlow 60s linear infinite;
+}
+.hero-orb2 {
+  position: absolute; width: 400px; height: 400px; border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.06);
+  bottom: -100px; left: -100px;
+}
+.hero-orb3 {
+  position: absolute; width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);
+  top: 40%; left: 30%;
+}
+.hero-inner {
+  max-width: 1100px; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+  position: relative; z-index: 2;
+}
+.hero-eyebrow {
+  font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 1rem;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+.hero-eyebrow::before { content: ''; display: inline-block; width: 40px; height: 1px; background: var(--gold); }
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 700;
+  color: #fff; line-height: 1.1; margin-bottom: 0.5rem;
+  animation: fadeUp 0.8s ease 0.35s both;
+}
+.hero-title em { font-style: italic; color: var(--gold-light); display: block; }
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic;
+  color: rgba(255,255,255,0.55); margin: 1rem 0 2.5rem; letter-spacing: 0.05em;
+  animation: fadeUp 0.8s ease 0.45s both;
+}
+.hero-desc {
+  font-size: 0.9rem; line-height: 1.9; color: rgba(255,255,255,0.7);
+  margin-bottom: 2.5rem; max-width: 420px;
+  animation: fadeUp 0.8s ease 0.55s both;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.8s ease 0.65s both; }
+.btn-primary {
+  background: var(--gold); color: var(--crimson-deep);
+  padding: 0.9rem 2.2rem; font-size: 0.82rem; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 600; text-decoration: none;
+  transition: all 0.3s; display: inline-block; position: relative; overflow: hidden;
+}
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background-size: 200% 100%; transform: translateX(-100%); transition: transform 0.5s;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+.btn-primary:hover::after { transform: translateX(100%); }
+.btn-outline {
+  background: transparent; color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 0.9rem 2.2rem; font-size: 0.82rem; letter-spacing: 0.1em;
+  text-transform: uppercase; text-decoration: none; transition: all 0.3s; display: inline-block;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+.service-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.8rem; animation: fadeUp 0.8s ease 0.75s both; }
+.service-tag {
+  font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(201,168,76,0.3); padding: 0.3rem 0.8rem;
+  transition: all 0.3s;
+}
+.service-tag:hover { background: rgba(201,168,76,0.1); }
+.hero-visual { animation: slideLeft 1s ease 0.4s both; }
+.hero-card-main {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.2);
+  padding: 2.5rem; position: relative; backdrop-filter: blur(6px);
+  animation: goldPulse 4s ease-in-out infinite;
+}
+.hero-card-main::before {
+  content: ''; position: absolute; top: -12px; left: -12px; right: 12px; bottom: 12px;
+  border: 1px solid rgba(201,168,76,0.08); z-index: -1;
+}
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: 'Playfair Display', serif; font-size: 2.4rem;
+  color: var(--gold-light); font-weight: 700; display: block; line-height: 1;
+}
+.stat-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 0.3rem; }
+.divider-gold { height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 1.5rem 0; }
+.hero-since { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; color: rgba(255,255,255,0.55); text-align: center; letter-spacing: 0.05em; }
+.hero-since strong { color: var(--gold-light); font-style: normal; font-weight: 400; }
+
+/* ── TICKER ── */
+.ticker-wrap {
+  background: var(--gold); padding: 0.6rem 0; overflow: hidden;
+  position: relative;
+}
+.ticker {
+  display: flex; white-space: nowrap;
+  animation: ticker 25s linear infinite;
+}
+.ticker-item {
+  font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--crimson-deep); font-weight: 600; padding: 0 3rem;
+}
+.ticker-sep { color: var(--crimson); margin: 0 0.5rem; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── SECTIONS ── */
+section { padding: 6rem 3rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.8rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.section-eyebrow::before { content: ''; display: inline-block; width: 30px; height: 1px; background: var(--gold); transform-origin: left; animation: lineDraw 0.6s ease both; }
+.section-title {
+  font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700; color: var(--crimson-deep); line-height: 1.2; margin-bottom: 1rem;
+}
+.section-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--text-muted); max-width: 520px; }
+
+/* ── STORY ── */
+.story-section { background: var(--cream); }
+.story-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: center; margin-top: 3rem; }
+.story-ornament {
+  width: 100%; aspect-ratio: 3/4; background: var(--crimson);
+  position: relative; display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.story-ornament::before { content: ''; position: absolute; inset: 16px; border: 1px solid rgba(201,168,76,0.35); }
+.story-ornament::after { content: ''; position: absolute; inset: 28px; border: 1px solid rgba(201,168,76,0.15); }
+.story-ornament-text { font-family: 'Playfair Display', serif; font-size: 7rem; color: rgba(201,168,76,0.12); font-weight: 700; text-align: center; line-height: 1; z-index: 1; }
+.story-ornament-label { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); white-space: nowrap; z-index: 2; }
+.story-content p { font-size: 0.95rem; line-height: 1.9; color: var(--text-mid); margin-bottom: 1.2rem; }
+.story-quote { border-left: 2px solid var(--gold); padding-left: 1.5rem; margin: 2rem 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: var(--crimson); line-height: 1.6; }
+.story-milestones { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2rem; }
+.milestone { text-align: center; padding: 1.2rem; border: 1px solid rgba(201,168,76,0.2); background: white; transition: all 0.3s; }
+.milestone:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(122,16,32,0.08); }
+.milestone-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--crimson); display: block; }
+.milestone-text { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.3rem; }
+
+/* ── PRODUCTS ── */
+.products-section { background: var(--warm-white); }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+.product-card {
+  border: 1px solid rgba(201,168,76,0.15); background: white; padding: 1.8rem;
+  transition: all 0.4s; position: relative; overflow: hidden;
+}
+.product-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--crimson), var(--gold));
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+}
+.product-card::after {
+  content: ''; position: absolute; bottom: 0; right: 0;
+  width: 80px; height: 80px;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+  transition: all 0.4s; transform: scale(0);
+}
+.product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(74,8,16,0.12); }
+.product-card:hover::before { transform: scaleX(1); }
+.product-card:hover::after { transform: scale(3); }
+.product-cat-badge { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem; }
+.product-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--crimson-deep); margin-bottom: 0.8rem; }
+.product-desc { font-size: 0.83rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.2rem; }
+.product-benefits { list-style: none; margin-bottom: 1.4rem; }
+.product-benefits li { font-size: 0.78rem; color: var(--text-mid); padding: 0.2rem 0 0.2rem 1rem; position: relative; }
+.product-benefits li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 0.5rem; top: 0.4rem; }
+.btn-wa {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--crimson); color: white; padding: 0.65rem 1.4rem;
+  font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.3s; font-family: 'Nunito Sans', sans-serif;
+  position: relative; overflow: hidden;
+}
+.btn-wa::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0); transition: background 0.3s; }
+.btn-wa:hover { background: var(--crimson-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(122,16,32,0.3); }
+
+/* ── PROMO ── */
+.promo-section { background: var(--crimson-deep); padding: 5rem 3rem; }
+.promo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1.5rem; max-width: 1100px; margin: 3rem auto 0; }
+.promo-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.2);
+  padding: 2rem 1.5rem; text-align: center; position: relative;
+  transition: all 0.4s;
+}
+.promo-card:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+.promo-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--crimson-deep); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; padding: 0.3rem 1rem; white-space: nowrap; }
+.promo-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold-light); margin: 0.8rem 0; }
+.promo-items { font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 1.2rem; }
+.promo-price { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: white; font-weight: 700; }
+.promo-price .vip { color: var(--gold); font-size: 0.72rem; font-family: 'Nunito Sans', sans-serif; display: block; font-weight: 400; letter-spacing: 0.08em; margin-top: 0.2rem; }
+.promo-validity { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-top: 1rem; }
+
+/* ── TREATMENTS ── */
+.treatments-section { background: var(--cream); }
+.treatment-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1.5rem; margin-top: 3rem; }
+.treatment-card {
+  background: white; border: 1px solid rgba(201,168,76,0.15); padding: 2.2rem;
+  transition: all 0.4s; position: relative;
+}
+.treatment-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(74,8,16,0.1); border-color: rgba(201,168,76,0.4); }
+.treatment-icon { width: 48px; height: 48px; background: var(--crimson); display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; transition: background 0.3s; }
+.treatment-card:hover .treatment-icon { background: var(--gold); }
+.treatment-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--gold); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s; }
+.treatment-card:hover .treatment-icon svg { stroke: var(--crimson-deep); }
+.treatment-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--crimson-deep); margin-bottom: 0.6rem; }
+.treatment-desc { font-size: 0.83rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.2rem; }
+.treatment-duration { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border-top: 1px solid rgba(201,168,76,0.15); padding-top: 1rem; }
+
+/* ── TESTIMONIALS ── */
+.testimonials-section { background: var(--warm-white); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1.5rem; margin-top: 3rem; }
+.testimonial-card {
+  background: white; border: 1px solid rgba(201,168,76,0.15); padding: 2rem;
+  position: relative; transition: all 0.4s;
+}
+.testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(74,8,16,0.08); }
+.testimonial-card::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 6rem; color: rgba(201,168,76,0.12); position: absolute; top: -1rem; left: 1rem; line-height: 1; transition: color 0.3s; }
+.testimonial-card:hover::before { color: rgba(201,168,76,0.22); }
+.stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+.testimonial-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; line-height: 1.7; color: var(--text-mid); margin-bottom: 1.2rem; }
+.testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+.author-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--crimson); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--gold-light); font-weight: 600; font-family: 'Nunito Sans', sans-serif; flex-shrink: 0; }
+.author-name { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
+.author-loc { font-size: 0.72rem; color: var(--text-muted); }
+
+/* ── BOOKING ── */
+.booking-section { background: var(--crimson-deep); padding: 6rem 3rem; }
+.booking-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+.booking-features { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
+.booking-feature { display: flex; gap: 1rem; align-items: flex-start; }
+.bf-icon { width: 36px; height: 36px; min-width: 36px; border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 0.9rem; }
+.bf-text h4 { font-size: 0.85rem; color: white; margin-bottom: 0.2rem; font-weight: 600; }
+.bf-text p { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+.booking-form { background: white; padding: 2.5rem; }
+.form-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--crimson-deep); margin-bottom: 1.8rem; font-weight: 700; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label { display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; border: 1px solid rgba(201,168,76,0.25); padding: 0.75rem 1rem; font-size: 0.85rem; font-family: 'Nunito Sans', sans-serif; color: var(--text-dark); background: var(--warm-white); outline: none; transition: border-color 0.3s, box-shadow 0.3s; appearance: none; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.1); }
+.form-group textarea { resize: vertical; min-height: 90px; }
+.form-submit { width: 100%; background: var(--crimson); color: white; border: none; padding: 1rem; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'Nunito Sans', sans-serif; font-weight: 600; cursor: pointer; transition: all 0.3s; margin-top: 0.5rem; position: relative; overflow: hidden; }
+.form-submit:hover { background: var(--crimson-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(122,16,32,0.3); }
+
+/* ── THERAPISTS ── */
+.therapists-section { background: var(--cream); }
+.therapists-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+.therapist-card { text-align: center; padding: 2rem 1.5rem; border: 1px solid rgba(201,168,76,0.12); background: white; transition: all 0.4s; }
+.therapist-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(74,8,16,0.08); }
+.therapist-avatar { width: 100px; height: 100px; border-radius: 50%; background: var(--crimson); margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center; border: 3px solid var(--gold); font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold-light); font-weight: 700; transition: all 0.3s; }
+.therapist-card:hover .therapist-avatar { box-shadow: 0 0 0 6px rgba(201,168,76,0.15); }
+.therapist-tier { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+.therapist-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--crimson-deep); font-weight: 700; }
+
+/* ── CONTACT ── */
+.contact-section { background: var(--warm-white); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+.contact-info-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem; }
+.contact-icon { width: 44px; height: 44px; min-width: 44px; background: var(--crimson); display: flex; align-items: center; justify-content: center; }
+.contact-icon svg { width: 20px; height: 20px; fill: none; stroke: var(--gold); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.contact-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.contact-value { font-size: 0.9rem; color: var(--text-dark); margin-top: 0.2rem; line-height: 1.5; }
+.contact-value a { color: var(--crimson); text-decoration: none; }
+.map-box { background: var(--crimson-deep); height: 280px; display: flex; align-items: center; justify-content: center; position: relative; }
+.map-box::before { content: ''; position: absolute; inset: 16px; border: 1px solid rgba(201,168,76,0.18); pointer-events: none; }
+.map-label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: rgba(255,255,255,0.4); text-align: center; padding: 1rem; line-height: 1.8; }
+
+/* ── FOOTER ── */
+footer { background: var(--crimson-deep); padding: 3rem; text-align: center; border-top: 1px solid rgba(201,168,76,0.12); }
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold-light); margin-bottom: 0.5rem; }
+.footer-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.9rem; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+.footer-social { display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; }
+.footer-social a { color: rgba(255,255,255,0.45); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 0.3s; }
+.footer-social a:hover { color: var(--gold); }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 500;
+  width: 58px; height: 58px; background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  text-decoration: none; animation: floatWA 3s ease-in-out infinite;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.wa-float:hover { transform: scale(1.12) translateY(-3px); box-shadow: 0 8px 30px rgba(37,211,102,0.5); animation: none; }
+.wa-float svg { width: 30px; height: 30px; fill: white; }
+.wa-tooltip {
+  position: absolute; right: 70px; background: white; color: #1a1a1a;
+  font-size: 0.78rem; padding: 0.4rem 0.8rem; border-radius: 4px; white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12); opacity: 0; transition: opacity 0.3s;
+  font-family: 'Nunito Sans', sans-serif;
+}
+.wa-float:hover .wa-tooltip { opacity: 1; }
+
+/* ── PROGRESS BAR ── */
+.progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--gold); z-index: 999; width: 0%; transition: width 0.1s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .lang-bar { padding: 0.35rem 1rem; }
+  nav { padding: 1rem 1.5rem; top: 28px; }
+  .nav-links, .nav-cta { display: none; }
+  .hero-inner, .story-grid, .booking-inner, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-visual { display: none; }
+  section { padding: 4rem 1.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .therapists-grid { grid-template-columns: 1fr; }
+  .promo-section, .booking-section { padding: 4rem 1.5rem; }
+}
+
+/* ── BILINGUAL ── */
+[data-en], [data-ms] { transition: opacity 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('ms')" id="btn-ms">BM</button>
+  <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Zahra <span>Callista</span></div>
+  <ul class="nav-links">
+    <li><a href="#produk" data-ms="Produk" data-en="Products">Produk</a></li>
+    <li><a href="#rawatan" data-ms="Rawatan" data-en="Treatments">Rawatan</a></li>
+    <li><a href="#promo" data-ms="Promo" data-en="Promo">Promo</a></li>
+    <li><a href="#testimoni" data-ms="Testimoni" data-en="Testimonials">Testimoni</a></li>
+    <li><a href="#tentang" data-ms="Tentang Kami" data-en="About Us">Tentang Kami</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta" data-ms="Buat Temujanji" data-en="Book Now">Buat Temujanji</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-orb3"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow" data-ms="Sejak 2012 · Brunei Darussalam" data-en="Since 2012 · Brunei Darussalam">Sejak 2012 · Brunei Darussalam</div>
+      <h1 class="hero-title">
+        <span data-ms="Kecantikan dari" data-en="Beauty from">Kecantikan dari</span>
+        <em data-ms="Alam & Tradisi" data-en="Nature & Tradition">Alam & Tradisi</em>
+      </h1>
+      <p class="hero-tagline">Sihat · Anggun · Menawan</p>
+      <p class="hero-desc" data-ms="Produk homemade berkualiti tinggi & rawatan spa tradisional warisan nenek moyang, direka khusus untuk wanita yang menghargai kecantikan semula jadi dan kesejahteraan badan." data-en="Premium handcrafted products & traditional spa treatments rooted in ancestral wisdom, designed for women who value natural beauty and holistic wellness.">
+        Produk homemade berkualiti tinggi & rawatan spa tradisional warisan nenek moyang, direka khusus untuk wanita yang menghargai kecantikan semula jadi dan kesejahteraan badan.
+      </p>
+      <div class="hero-btns">
+        <a href="#booking" class="btn-primary" data-ms="Buat Temujanji" data-en="Book Appointment">Buat Temujanji</a>
+        <a href="#produk" class="btn-outline" data-ms="Lihat Produk" data-en="View Products">Lihat Produk</a>
+      </div>
+      <div class="service-tags">
+        <span class="service-tag" data-ms="Lulur Tradisional" data-en="Traditional Scrub">Lulur Tradisional</span>
+        <span class="service-tag" data-ms="Sauna Infrared" data-en="Infrared Sauna">Sauna Infrared</span>
+        <span class="service-tag" data-ms="Mandi Bunga" data-en="Flower Bath">Mandi Bunga</span>
+        <span class="service-tag" data-ms="Pakej Berpantang" data-en="Post-partum Package">Pakej Berpantang</span>
+        <span class="service-tag" data-ms="Jamu Herba" data-en="Herbal Jamu">Jamu Herba</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-main">
+        <div class="stat-grid">
+          <div class="stat-item">
+            <span class="stat-num" data-target="2000">0</span>
+            <span class="stat-label" data-ms="Pelanggan Setia" data-en="Loyal Customers">Pelanggan Setia</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="14">0</span>
+            <span class="stat-label" data-ms="Tahun Pengalaman" data-en="Years Experience">Tahun Pengalaman</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="40">0</span>
+            <span class="stat-label" data-ms="Produk & Rawatan" data-en="Products & Treatments">Produk & Rawatan</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">100%</span>
+            <span class="stat-label" data-ms="Bahan Semulajadi" data-en="Natural Ingredients">Bahan Semulajadi</span>
+          </div>
+        </div>
+        <div class="divider-gold"></div>
+        <p class="hero-since">
+          <span data-ms="Dipercayai sejak" data-en="Trusted since">Dipercayai sejak</span>
+          <strong>2012</strong> —
+          <span data-ms="jenama wellness terkemuka Brunei" data-en="Brunei's leading wellness brand">jenama wellness terkemuka Brunei</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">✦ Sihat Anggun Menawan</span>
+    <span class="ticker-item">✦ 100% Homemade</span>
+    <span class="ticker-item">✦ Halal</span>
+    <span class="ticker-item">✦ No Harsh Chemicals</span>
+    <span class="ticker-item">✦ Brunei's Trusted Wellness Brand</span>
+    <span class="ticker-item">✦ Since 2012</span>
+    <span class="ticker-item">✦ 2,000+ Pelanggan Setia</span>
+    <span class="ticker-item">✦ Traditional Recipes</span>
+    <span class="ticker-item">✦ Sihat Anggun Menawan</span>
+    <span class="ticker-item">✦ 100% Homemade</span>
+    <span class="ticker-item">✦ Halal</span>
+    <span class="ticker-item">✦ No Harsh Chemicals</span>
+    <span class="ticker-item">✦ Brunei's Trusted Wellness Brand</span>
+    <span class="ticker-item">✦ Since 2012</span>
+    <span class="ticker-item">✦ 2,000+ Pelanggan Setia</span>
+    <span class="ticker-item">✦ Traditional Recipes</span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story-section" id="tentang">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">
+      <span data-ms="Kisah Kami" data-en="Our Story">Kisah Kami</span>
+    </div>
+    <h2 class="section-title reveal" data-ms="Warisan dari Terengganu ke Brunei" data-en="A Heritage from Terengganu to Brunei">Warisan dari Terengganu ke Brunei</h2>
+    <div class="story-grid">
+      <div class="story-ornament reveal-left">
+        <div class="story-ornament-text">ZC</div>
+        <span class="story-ornament-label">Est. 2012 · Brunei</span>
+      </div>
+      <div class="story-content reveal-right">
+        <p data-ms="Perjalanan Zahra Callista bermula dari kenangan indah masa kecil pengasasnya, Nizaha Bakar — seorang wanita yang sejak usia 7 tahun sudah mengiringi neneknya, seorang bidan kampung dan herbalis terkenal dari Terengganu." data-en="The journey of Zahra Callista began with the cherished childhood memories of its founder, Nizaha Bakar — a woman who from the age of 7 followed her grandmother, a renowned village midwife and herbalist from Terengganu.">
+          Perjalanan Zahra Callista bermula dari kenangan indah masa kecil pengasasnya, <strong>Nizaha Bakar</strong> — seorang wanita yang sejak usia 7 tahun sudah mengiringi neneknya, seorang bidan kampung dan herbalis terkenal dari Terengganu.
+        </p>
+        <div class="story-quote" data-ms='"Nenek saya mewarisi satu buku bertulisan jawi yang mengandungi segala ilmu perubatan tradisional. Itulah hadiah paling berharga yang saya terima."' data-en='"My grandmother left me a handwritten Jawi book containing all her knowledge of traditional medicine. It is the most precious gift I have ever received."'>
+          "Nenek saya mewarisi satu buku bertulisan jawi yang mengandungi segala ilmu perubatan tradisional. Itulah hadiah paling berharga yang saya terima."
+        </div>
+        <p data-ms="Dari resep-resep suci itulah, Zahra Callista dilahirkan pada 2012. Bermula dari rawatan di rumah sendiri, Nizaha kini melayan lebih 2,000 pelanggan setia di Brunei dengan rangkaian lebih 40 produk dan rawatan homemade." data-en="From those sacred recipes, Zahra Callista was born in 2012. Starting from home treatments, Nizaha now serves over 2,000 loyal customers in Brunei with a range of 40+ handcrafted products and treatments.">
+          Dari resep-resep suci itulah, Zahra Callista dilahirkan pada 2012. Bermula dari rawatan di rumah sendiri, Nizaha kini melayan lebih 2,000 pelanggan setia di Brunei dengan rangkaian lebih 40 produk dan rawatan homemade.
+        </p>
+        <div class="story-milestones">
+          <div class="milestone reveal-scale stagger-1">
+            <span class="milestone-num">2012</span>
+            <span class="milestone-text" data-ms="Bermula dari Rumah" data-en="Started from Home">Bermula dari Rumah</span>
+          </div>
+          <div class="milestone reveal-scale stagger-2">
+            <span class="milestone-num">2015</span>
+            <span class="milestone-text" data-ms="Buka Kedai Pertama" data-en="First Store Opened">Buka Kedai Pertama</span>
+          </div>
+          <div class="milestone reveal-scale stagger-3">
+            <span class="milestone-num">2,000+</span>
+            <span class="milestone-text" data-ms="Pelanggan Setia" data-en="Loyal Customers">Pelanggan Setia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="produk">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal"><span data-ms="Koleksi Produk" data-en="Our Products">Koleksi Produk</span></div>
+    <h2 class="section-title reveal" data-ms="Dibuat dengan Kasih & Ketelitian" data-en="Crafted with Love & Care">Dibuat dengan Kasih & Ketelitian</h2>
+    <p class="section-sub reveal" data-ms="Setiap produk direka dengan bahan-bahan semulajadi pilihan, tanpa bahan kimia berbahaya." data-en="Every product is made with selected natural ingredients, free from harmful chemicals.">Setiap produk direka dengan bahan-bahan semulajadi pilihan, tanpa bahan kimia berbahaya.</p>
+    <div class="products-grid">
+
+      <div class="product-card reveal stagger-1">
+        <div class="product-cat-badge">✦ Lulur</div>
+        <h3 class="product-name">Lulur Seri Aura</h3>
+        <p class="product-desc" data-ms="Tingkatkan aura positif dan seri wajah anda dengan lulur tradisional istimewa." data-en="Enhance your positive aura and radiant glow with this special traditional scrub.">Tingkatkan aura positif dan seri wajah anda dengan lulur tradisional istimewa.</p>
+        <ul class="product-benefits">
+          <li data-ms="Menambah aura positif dan mood baik" data-en="Enhances positive aura and good mood">Menambah aura positif dan mood baik</li>
+          <li data-ms="Menanggalkan sel-sel kulit mati" data-en="Removes dead skin cells">Menanggalkan sel-sel kulit mati</li>
+          <li data-ms="Melembapkan dan mengembalikan seri" data-en="Moisturises and restores radiance">Melembapkan dan mengembalikan seri</li>
+          <li data-ms="Kulit halus, gebu, cerah dan cantik" data-en="Smooth, soft, bright and beautiful skin">Kulit halus, gebu, cerah dan cantik</li>
+        </ul>
+        <a href="https://wa.me/6738739424?text=Assalamualaikum%2C%20saya%20berminat%20dengan%20Lulur%20Seri%20Aura" class="btn-wa" target="_blank">📱 <span data-ms="Order via WhatsApp" data-en="Order via WhatsApp">Order via WhatsApp</span></a>
+      </div>
+
+      <div class="product-card reveal stagger-2">
+        <div class="product-cat-badge">✦ Lulur</div>
+        <h3 class="product-name">Lulur Bunga Cinta</h3>
+        <p class="product-desc" data-ms="Khas untuk wanita berkahwin yang ingin meningkatkan daya tarikan dan keharmonian rumahtangga." data-en="Specially for married women to enhance attraction and marital harmony.">Khas untuk wanita berkahwin yang ingin meningkatkan daya tarikan dan keharmonian rumahtangga.</p>
+        <ul class="product-benefits">
+          <li data-ms="Menarik kasih sayang pasangan" data-en="Draws partner's affection">Menarik kasih sayang pasangan</li>
+          <li data-ms="Mengekalkan mood positif" data-en="Maintains positive mood">Mengekalkan mood positif</li>
+          <li data-ms="Memberikan aura dan mengembalikan seri" data-en="Gives aura and restores radiance">Memberikan aura dan mengembalikan seri</li>
+          <li data-ms="Menghaluskan dan membaiki tekstur kulit" data-en="Smoothens and improves skin texture">Menghaluskan dan membaiki tekstur kulit</li>
+        </ul>
+        <a href="https://wa.me/6738739424?text=Assalamualaikum%2C%20saya%20berminat%20dengan%20Lulur%20Bunga%20Cinta" class="btn-wa" target="_blank">📱 <span data-ms="Order via WhatsApp" data-en="Order via WhatsApp">Order via WhatsApp</span></a>
+      </div>
+
+      <div class="product-card reveal stagger-3">
+        <div class="product-cat-badge">✦ Lulur</div>
+        <h3 class="product-name">Lulur Coffee</h3>
+        <p class="product-desc" data-ms="Formula kopi istimewa untuk kulit lebih ketat, cerah, dan bebas selulit." data-en="Special coffee formula for tighter, brighter skin free from cellulite.">Formula kopi istimewa untuk kulit lebih ketat, cerah, dan bebas selulit.</p>
+        <ul class="product-benefits">
+          <li data-ms="Mengurangkan selulit dan stretch marks" data-en="Reduces cellulite and stretch marks">Mengurangkan selulit dan stretch marks</li>
+          <li data-ms="Mencerahkan kulit kusam" data-en="Brightens dull skin">Mencerahkan kulit kusam</li>
+          <li data-ms="Melembutkan dan menegangkan kulit" data-en="Softens and firms skin">Melembutkan dan menegangkan kulit</li>
+          <li data-ms="Aroma menyegarkan dan relaksasi" data-en="Refreshing and relaxing aroma">Aroma menyegarkan dan relaksasi</li>
+        </ul>
+        <a href="https://wa.me/6738739424?text=Assalamualaikum%2C%20saya%20berminat%20dengan%20Lulur%20Coffee" class="btn-wa" target="_blank">📱 <span data-ms="Order via WhatsApp" data-en="Order via WhatsApp">Order via WhatsApp</span></a>
+      </div>
+
+      <div class="product-card reveal stagger-4">
+        <div class="product-cat-badge">✦ Garam Mandian</div>
+        <h3 class="product-name">Garam Mandian Bidara</h3>
+        <p class="product-desc" data-ms="Rawatan spiritual untuk ketenangan jiwa dan perlindungan diri." data-en="Spiritual treatment for peace of mind and spiritual protection.">Rawatan spiritual untuk ketenangan jiwa dan perlindungan diri.</p>
+        <ul class="product-benefits">
+          <li data-ms="Untuk yang mengalami rasa uri/gangguan" data-en="For anxiety and spiritual disturbance">Untuk yang mengalami rasa uri/gangguan</li>
+          <li data-ms="Diniatkan sebagai pendinding" data-en="Intended as spiritual protection">Diniatkan sebagai pendinding</li>
+          <li data-ms="Memulihkan hati yang tidak tenang" data-en="Restores unsettled heart">Memulihkan hati yang tidak tenang</li>
+          <li data-ms="Membantu menghilangkan stress" data-en="Helps relieve stress">Membantu menghilangkan stress</li>
+        </ul>
+        <a href="https://wa.me/6738739424?text=Assalamualaikum%2C%20saya%20berminat%20dengan%20Garam%20Mandian%20Bidara" class="btn-wa" target="_blank">📱 <span data-ms="Order via WhatsApp" data-en="Order via WhatsApp">Order via WhatsApp</span></a>
+      </div>
+
+      <div class="product-card reveal stagger-5">
+        <div class="product-cat-badge">✦ Garam Mandian</div>
+        <h3 class="product-name">Garam Mandian Luxury Love</h3>
+        <p class="product-desc" data-ms="Formulasi eksklusif untuk membaharui keintiman dan keharmonian hubungan." data-en="Exclusive formulation to rekindle intimacy and relationship harmony.">Formulasi eksklusif untuk membaharui keintiman dan keharmonian hubungan.</p>
+        <ul class="product-benefits">
+          <li data-ms="Mengaharamkan semula hubungan suami isteri" data-en="Rekindles husband-wife bond">Mengaharamkan semula hubungan suami isteri</li>
+          <li data-ms="Memberi aroma yang romantis" data-en="Gives a romantic aroma">Memberi aroma yang romantis</li>
+          <li data-ms="Membantu menstabilkan emosi" data-en="Helps stabilise emotions">Membantu menstabilkan emosi</li>
+          <li data-ms="Mengurangkan tekanan dan stress" data-en="Reduces pressure and stress">Mengurangkan tekanan dan stress</li>
+        </ul>
+        <a href="https://wa.me/6738739424?text=Assalamualaikum%2C%20saya%20berminat%20dengan%20Garam%20Mandian%20Luxury%20Love" class="btn-wa" target="_blank">📱 <span data-ms="Order via WhatsApp" data-en="Order via WhatsApp">Order via WhatsApp</span></a>
+      </div>
+
+      <div class="product-card reveal stagger-6">
+        <div class="product-cat-badge">✦ <span data-ms="Produk Lain" data-en="Other Products">Produk Lain</span></div>
+        <h3 class="product-name">Coconut Hair Treatment</h3>
+        <p class="product-desc" data-ms="Rawatan rambut organik beraroma limau segar untuk rambut sihat dan berkilat." data-en="Organic hair treatment with fresh lime scent for healthy, lustrous hair.">Rawatan rambut organik beraroma limau segar untuk rambut sihat dan berkilat.</p>
+        <ul class="product-benefits">
+          <li data-ms="Melebat dan melembutkan rambut" data-en="Thickens and softens hair">Melebat dan melembutkan rambut</li>
+          <li data-ms="Mengatasi masalah rambut gugur" data-en="Treats hair loss">Mengatasi masalah rambut gugur</li>
+          <li data-ms="Menghitamkan uban" data-en="Darkens grey hair">Menghitamkan uban</li>
+          <li data-ms="Mengurangkan Migraine & Sakit Kepala" data-en="Reduces migraine and headaches">Mengurangkan Migraine & Sakit Kepala</li>
+        </ul>
+        <a href="https://wa.me/6738739424?text=Assalamualaikum%2C%20saya%20berminat%20dengan%20Coconut%20Hair%20Treatment" class="btn-wa" target="_blank">📱 <span data-ms="Order via WhatsApp" data-en="Order via WhatsApp">Order via WhatsApp</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROMO -->
+<section class="promo-section" id="promo">
+  <div class="section-inner" style="max-width:1100px;margin:0 auto;">
+    <div class="section-eyebrow reveal" style="justify-content:center;color:var(--gold);">
+      <span style="display:inline-block;width:30px;height:1px;background:var(--gold);"></span>
+      <span data-ms="Tawaran Istimewa" data-en="Special Offers">Tawaran Istimewa</span>
+    </div>
+    <h2 class="section-title reveal" style="color:var(--gold-light);text-align:center;" data-ms="Special Promo Bundle" data-en="Special Promo Bundle">Special Promo Bundle</h2>
+    <p class="section-sub reveal" style="color:rgba(255,255,255,0.45);text-align:center;margin:0 auto;" data-ms="Sah sehingga akhir Mei 2026 · Harga VIP untuk ahli berdaftar" data-en="Valid until end of May 2026 · VIP price for registered members">Sah sehingga akhir Mei 2026 · Harga VIP untuk ahli berdaftar</p>
+  </div>
+  <div class="promo-grid">
+    <div class="promo-card reveal stagger-1">
+      <span class="promo-badge">✦ Best Seller</span>
+      <div class="promo-name">Aura Glow</div>
+      <div class="promo-items">Lulur Seri Wajah<br>+ Garam Mandian Rose</div>
+      <div class="promo-price">$39.00<span class="vip">VIP · <s style="opacity:.5">$42.00</s></span></div>
+      <a href="https://wa.me/6738739424?text=Saya%20berminat%20Bundle%20Aura%20Glow" class="btn-wa" style="margin-top:1.2rem;display:inline-flex;" target="_blank"><span data-ms="Order Sekarang" data-en="Order Now">Order Sekarang</span></a>
+      <div class="promo-validity" data-ms="Sah sehingga akhir Mei 2026" data-en="Valid until end of May 2026">Sah sehingga akhir Mei 2026</div>
+    </div>
+    <div class="promo-card reveal stagger-2">
+      <span class="promo-badge">✦ Popular</span>
+      <div class="promo-name">Coffee Glow</div>
+      <div class="promo-items">Lulur Coffee<br>+ Gel Mandian Limau Purut 100ml</div>
+      <div class="promo-price">$31.00<span class="vip">VIP · <s style="opacity:.5">$34.00</s></span></div>
+      <a href="https://wa.me/6738739424?text=Saya%20berminat%20Bundle%20Coffee%20Glow" class="btn-wa" style="margin-top:1.2rem;display:inline-flex;" target="_blank"><span data-ms="Order Sekarang" data-en="Order Now">Order Sekarang</span></a>
+      <div class="promo-validity" data-ms="Sah sehingga akhir Mei 2026" data-en="Valid until end of May 2026">Sah sehingga akhir Mei 2026</div>
+    </div>
+    <div class="promo-card reveal stagger-3">
+      <div class="promo-name">Hormon Detox</div>
+      <div class="promo-items">Jamu Kunyit Dara 500ml<br>+ Detox Angin 350ml</div>
+      <div class="promo-price">$25.00<span class="vip">VIP · <s style="opacity:.5">$28.90</s></span></div>
+      <a href="https://wa.me/6738739424?text=Saya%20berminat%20Bundle%20Hormon%20Detox" class="btn-wa" style="margin-top:1.2rem;display:inline-flex;" target="_blank"><span data-ms="Order Sekarang" data-en="Order Now">Order Sekarang</span></a>
+      <div class="promo-validity" data-ms="Sah sehingga akhir Mei 2026" data-en="Valid until end of May 2026">Sah sehingga akhir Mei 2026</div>
+    </div>
+    <div class="promo-card reveal stagger-4">
+      <div class="promo-name">Body Reset</div>
+      <div class="promo-items">Jamu Kunyit Dara 500ml<br>+ Jus Halia 350ml + Detox Angin 350ml</div>
+      <div class="promo-price">$32.00<span class="vip">VIP · <s style="opacity:.5">$35.90</s></span></div>
+      <a href="https://wa.me/6738739424?text=Saya%20berminat%20Bundle%20Body%20Reset" class="btn-wa" style="margin-top:1.2rem;display:inline-flex;" target="_blank"><span data-ms="Order Sekarang" data-en="Order Now">Order Sekarang</span></a>
+      <div class="promo-validity" data-ms="Sah sehingga akhir Mei 2026" data-en="Valid until end of May 2026">Sah sehingga akhir Mei 2026</div>
+    </div>
+    <div class="promo-card reveal stagger-5">
+      <div class="promo-name">Hydration Glow</div>
+      <div class="promo-items">3 Botol Jus Delima 300ml</div>
+      <div class="promo-price">$24.00<span class="vip">VIP · <s style="opacity:.5">$27.00</s></span></div>
+      <a href="https://wa.me/6738739424?text=Saya%20berminat%20Bundle%20Hydration%20Glow" class="btn-wa" style="margin-top:1.2rem;display:inline-flex;" target="_blank"><span data-ms="Order Sekarang" data-en="Order Now">Order Sekarang</span></a>
+      <div class="promo-validity" data-ms="Sah sehingga akhir Mei 2026" data-en="Valid until end of May 2026">Sah sehingga akhir Mei 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section class="treatments-section" id="rawatan">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal"><span data-ms="Pakej Rawatan" data-en="Treatment Packages">Pakej Rawatan</span></div>
+    <h2 class="section-title reveal" data-ms="Rawatan Tradisional Profesional" data-en="Professional Traditional Treatments">Rawatan Tradisional Profesional</h2>
+    <p class="section-sub reveal" data-ms="Dilakukan oleh terapis berpengalaman dengan sentuhan tradisi dan teknologi moden." data-en="Performed by experienced therapists blending traditional wisdom with modern techniques.">Dilakukan oleh terapis berpengalaman dengan sentuhan tradisi dan teknologi moden.</p>
+    <div class="treatment-grid">
+      <div class="treatment-card reveal stagger-1">
+        <div class="treatment-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3 class="treatment-name">Pakej Vertigo</h3>
+        <p class="treatment-desc" data-ms="Rawatan khas untuk mengurangkan simptom pening dan ketidakseimbangan badan. Melancarkan peredaran darah di kepala, menstabilkan saraf." data-en="Specialised treatment to reduce dizziness and body imbalance. Improves blood circulation to the head and stabilises nerves.">Rawatan khas untuk mengurangkan simptom pening dan ketidakseimbangan badan. Melancarkan peredaran darah di kepala, menstabilkan saraf.</p>
+        <div class="treatment-duration">Exclusive: 2j 30m · Platinum: 1j 45m</div>
+      </div>
+      <div class="treatment-card reveal stagger-2">
+        <div class="treatment-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3 class="treatment-name">Pakej Keguguran</h3>
+        <p class="treatment-desc" data-ms="Pemulihan dalaman wanita selepas keguguran. Membersihkan rahim, menguatkan uterus, menstabilkan hormon, dan menyediakan badan untuk hamil semula." data-en="Internal recovery for women after miscarriage. Cleanses the womb, strengthens the uterus, stabilises hormones, and prepares the body for conception.">Pemulihan dalaman wanita selepas keguguran. Membersihkan rahim, menguatkan uterus, menstabilkan hormon, dan menyediakan badan untuk hamil semula.</p>
+        <div class="treatment-duration">Exclusive: 2j 30m · Platinum: 1j 30m</div>
+      </div>
+      <div class="treatment-card reveal stagger-3">
+        <div class="treatment-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 4v6l3 3"/></svg></div>
+        <h3 class="treatment-name">Pakej Dugal</h3>
+        <p class="treatment-desc" data-ms="Rawatan khas untuk masalah angin dan gastrik. Membuang angin, melegakan perut kembung, dan mengurangkan pedih ulu hati." data-en="Specialised treatment for wind and gastric issues. Expels wind, relieves bloating, and reduces heartburn.">Rawatan khas untuk masalah angin dan gastrik. Membuang angin, melegakan perut kembung, dan mengurangkan pedih ulu hati.</p>
+        <div class="treatment-duration">Platinum: 1j 15m · Premium: 1j</div>
+      </div>
+      <div class="treatment-card reveal stagger-4">
+        <div class="treatment-icon"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+        <h3 class="treatment-name" data-ms="Sauna Infrared" data-en="Infrared Sauna">Sauna Infrared</h3>
+        <p class="treatment-desc" data-ms="Teknologi sauna infrared untuk melancarkan aliran darah, membuang toksin, mengurangkan berat badan, selulit, dan mempercantik kulit." data-en="Infrared sauna technology to improve blood flow, detoxify the body, reduce weight, cellulite, and beautify the skin.">Teknologi sauna infrared untuk melancarkan aliran darah, membuang toksin, mengurangkan berat badan, selulit, dan mempercantik kulit.</p>
+        <div class="treatment-duration" data-ms="Hubungi kami untuk waktu & harga" data-en="Contact us for timing & pricing">Hubungi kami untuk waktu & harga</div>
+      </div>
+      <div class="treatment-card reveal stagger-5">
+        <div class="treatment-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 class="treatment-name" data-ms="Mandi Bunga + Susu" data-en="Flower + Milk Bath">Mandi Bunga + Susu</h3>
+        <p class="treatment-desc" data-ms="Pengalaman mandi bunga mewah kombinasi susu untuk menaikkan seri, menghaluskan dan mencerahkan kulit, serta mencegah penuaan." data-en="A luxurious flower and milk bath experience to enhance radiance, smooth and brighten skin, and prevent ageing.">Pengalaman mandi bunga mewah kombinasi susu untuk menaikkan seri, menghaluskan dan mencerahkan kulit, serta mencegah penuaan.</p>
+        <div class="treatment-duration" data-ms="Hubungi kami untuk temujanji" data-en="Contact us for appointment">Hubungi kami untuk temujanji</div>
+      </div>
+      <div class="treatment-card reveal stagger-6">
+        <div class="treatment-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <h3 class="treatment-name" data-ms="Urut Saraf Separuh Badan" data-en="Half-Body Nerve Massage">Urut Saraf Separuh Badan</h3>
+        <p class="treatment-desc" data-ms="Program 3-sesi: Sauna Blanket + Urut, Sauna Blanket + Urut, Masker Boreh + Sauna + Mandi Herba + Urut." data-en="3-session programme: Sauna Blanket + Massage, Sauna Blanket + Massage, Boreh Mask + Sauna + Herbal Bath + Massage.">Program 3-sesi: Sauna Blanket + Urut, Sauna Blanket + Urut, Masker Boreh + Sauna + Mandi Herba + Urut.</p>
+        <div class="treatment-duration">Member: $170/sesi · Non-Member: $184.90/sesi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimoni">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal"><span data-ms="Testimoni Pelanggan" data-en="Customer Reviews">Testimoni Pelanggan</span></div>
+    <h2 class="section-title reveal" data-ms="Apa Kata Mereka" data-en="What They Say">Apa Kata Mereka</h2>
+    <p class="section-sub reveal" data-ms="Kepuasan pelanggan adalah keutamaan kami — lebih 2,000 pelanggan setia di seluruh Brunei." data-en="Customer satisfaction is our priority — over 2,000 loyal customers across Brunei.">Kepuasan pelanggan adalah keutamaan kami — lebih 2,000 pelanggan setia di seluruh Brunei.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal stagger-1">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Saya dah cuba lulur seri aura dan terus jatuh cinta! Kulit saya jadi halus dan berseri dalam masa seminggu. Puan Nieza sangat professional dan ramah. Akan datang lagi!"</p>
+        <div class="testimonial-author"><div class="author-avatar">SR</div><div><div class="author-name">Siti Rahimah</div><div class="author-loc">Brunei Muara</div></div></div>
+      </div>
+      <div class="testimonial-card reveal stagger-2">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Pakej vertigo yang saya buat dengan Terapis Ainaa memang luar biasa kesannya. Selepas 2 sesi, pening kepala saya berkurangan banyak. Sangat recommend!"</p>
+        <div class="testimonial-author"><div class="author-avatar">NA</div><div><div class="author-name">Nurul Ain</div><div class="author-loc">Brunei</div></div></div>
+      </div>
+      <div class="testimonial-card reveal stagger-3">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"I came all the way from KL and this was worth every cent! The sauna infrared + mandi bunga was divine. Already ordered Lulur Coffee to take home!"</p>
+        <div class="testimonial-author"><div class="author-avatar">FN</div><div><div class="author-name">Farah Nadia</div><div class="author-loc">KL (visiting Brunei)</div></div></div>
+      </div>
+      <div class="testimonial-card reveal stagger-4">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Garam Mandian Bidara saya gunakan setiap pagi. Jiwa rasa lebih tenang dan damai. Syukur jumpa produk Zahra Callista ni. Dah order 5 kali!"</p>
+        <div class="testimonial-author"><div class="author-avatar">HN</div><div><div class="author-name">Hajah Normah</div><div class="author-loc">Brunei</div></div></div>
+      </div>
+      <div class="testimonial-card reveal stagger-5">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Pakej keguguran yang Puan Nieza buat untuk saya sangat membantu pemulihan. Terasa rahim makin kuat dan haid pun lebih lancar. Terima kasih Zahra Callista!"</p>
+        <div class="testimonial-author"><div class="author-avatar">DR</div><div><div class="author-name">Dayang Rosmawati</div><div class="author-loc">Brunei</div></div></div>
+      </div>
+      <div class="testimonial-card reveal stagger-6">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"My friend recommended the Coconut Hair Treatment and now I'm hooked! Hair loss reduced significantly after 3 weeks. Great natural product, no harsh chemicals."</p>
+        <div class="testimonial-author"><div class="author-avatar">ML</div><div><div class="author-name">Mdm Lee Siew Ling</div><div class="author-loc">Brunei</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THERAPISTS -->
+<section class="therapists-section">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal"><span data-ms="Tim Kami" data-en="Our Team">Tim Kami</span></div>
+    <h2 class="section-title reveal" data-ms="Terapis Kami yang Berpengalaman" data-en="Our Experienced Therapists">Terapis Kami yang Berpengalaman</h2>
+    <div class="therapists-grid">
+      <div class="therapist-card reveal stagger-1">
+        <div class="therapist-avatar">N</div>
+        <div class="therapist-tier">✦ Exclusive</div>
+        <div class="therapist-name">Puan Nieza</div>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.5rem;" data-ms="Pengasas & Terapis Utama. Pakar rawatan tradisional dengan pengalaman lebih 14 tahun." data-en="Founder & Lead Therapist. Expert in traditional treatments with over 14 years of experience.">Pengasas & Terapis Utama. Pakar rawatan tradisional dengan pengalaman lebih 14 tahun.</p>
+      </div>
+      <div class="therapist-card reveal stagger-2">
+        <div class="therapist-avatar">A</div>
+        <div class="therapist-tier">✦ Platinum</div>
+        <div class="therapist-name">Terapis Ainaa</div>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.5rem;" data-ms="Pakar rawatan pakej platinum dengan kemahiran urut tradisional dan sauna." data-en="Platinum package specialist skilled in traditional massage and sauna treatments.">Pakar rawatan pakej platinum dengan kemahiran urut tradisional dan sauna.</p>
+      </div>
+      <div class="therapist-card reveal stagger-3">
+        <div class="therapist-avatar">F</div>
+        <div class="therapist-tier">✦ Premium</div>
+        <div class="therapist-name">Terapis Fee / Miza</div>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.5rem;" data-ms="Terapis premium berpengalaman untuk rawatan harian dan pakej kecantikan." data-en="Experienced premium therapist for daily treatments and beauty packages.">Terapis premium berpengalaman untuk rawatan harian dan pakej kecantikan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking-section" id="booking">
+  <div class="booking-inner">
+    <div class="booking-info reveal-left">
+      <div class="section-eyebrow" style="color:var(--gold);">
+        <span style="display:inline-block;width:30px;height:1px;background:var(--gold);"></span>
+        <span data-ms="Tempah Rawatan" data-en="Book a Treatment">Tempah Rawatan</span>
+      </div>
+      <h2 class="section-title" style="color:var(--gold-light);" data-ms="Buat Temujanji Hari Ini" data-en="Book Your Appointment Today">Buat Temujanji Hari Ini</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.5);" data-ms="Isi borang dan kami akan menghubungi anda dalam masa 24 jam melalui WhatsApp." data-en="Fill in the form and we'll contact you within 24 hours via WhatsApp.">Isi borang dan kami akan menghubungi anda dalam masa 24 jam melalui WhatsApp.</p>
+      <div class="booking-features">
+        <div class="booking-feature">
+          <div class="bf-icon">✓</div>
+          <div class="bf-text">
+            <h4 data-ms="Pengesahan Pantas" data-en="Quick Confirmation">Pengesahan Pantas</h4>
+            <p data-ms="Kami akan menghubungi anda via WhatsApp dalam masa 24 jam" data-en="We'll contact you via WhatsApp within 24 hours">Kami akan menghubungi anda via WhatsApp dalam masa 24 jam</p>
+          </div>
+        </div>
+        <div class="booking-feature">
+          <div class="bf-icon">✦</div>
+          <div class="bf-text">
+            <h4 data-ms="Pilih Terapis Anda" data-en="Choose Your Therapist">Pilih Terapis Anda</h4>
+            <p data-ms="Exclusive, Platinum atau Premium — mengikut keperluan anda" data-en="Exclusive, Platinum or Premium — based on your needs">Exclusive, Platinum atau Premium — mengikut keperluan anda</p>
+          </div>
+        </div>
+        <div class="booking-feature">
+          <div class="bf-icon">♡</div>
+          <div class="bf-text">
+            <h4 data-ms="Perundingan Percuma" data-en="Free Consultation">Perundingan Percuma</h4>
+            <p data-ms="Setiap temujanji baru mendapat perundingan percuma" data-en="Every new appointment includes a free consultation">Setiap temujanji baru mendapat perundingan percuma</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="booking-form reveal-right">
+      <div class="form-title" data-ms="Borang Temujanji" data-en="Appointment Form">Borang Temujanji</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label data-ms="Nama Penuh" data-en="Full Name">Nama Penuh</label>
+          <input type="text" id="f-name" placeholder="e.g. Siti Rahimah">
+        </div>
+        <div class="form-group">
+          <label data-ms="No. WhatsApp" data-en="WhatsApp Number">No. WhatsApp</label>
+          <input type="tel" id="f-phone" placeholder="+673 / +60">
+        </div>
+      </div>
+      <div class="form-group">
+        <label data-ms="Pilih Rawatan" data-en="Select Treatment">Pilih Rawatan</label>
+        <select id="f-treatment">
+          <option value="" data-ms="-- Pilih Rawatan --" data-en="-- Select Treatment --">-- Pilih Rawatan --</option>
+          <optgroup label="Rawatan / Pakej">
+            <option>Pakej Vertigo</option>
+            <option>Pakej Dugal (Gastrik)</option>
+            <option>Pakej Keguguran</option>
+            <option data-ms="Berdiang (Post-Partum)" data-en="Berdiang (Post-Partum)">Berdiang (Post-Partum)</option>
+            <option>Sauna Infrared</option>
+            <option>Sauna Steam</option>
+            <option data-ms="Mandi Bunga + Susu" data-en="Flower + Milk Bath">Mandi Bunga + Susu</option>
+            <option data-ms="Mandi Susu" data-en="Milk Bath">Mandi Susu</option>
+            <option data-ms="Urut Saraf Separuh Badan" data-en="Half-Body Nerve Massage">Urut Saraf Separuh Badan</option>
+          </optgroup>
+          <optgroup data-ms="Produk" data-en="Products" label="Produk">
+            <option data-ms="Lulur (pelbagai jenis)" data-en="Lulur (various types)">Lulur (pelbagai jenis)</option>
+            <option data-ms="Garam Mandian" data-en="Bath Salts">Garam Mandian</option>
+            <option data-ms="Lain-lain" data-en="Others">Lain-lain</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label data-ms="Tarikh Pilihan" data-en="Preferred Date">Tarikh Pilihan</label>
+          <input type="date" id="f-date">
+        </div>
+        <div class="form-group">
+          <label data-ms="Waktu Pilihan" data-en="Preferred Time">Waktu Pilihan</label>
+          <select id="f-time">
+            <option value="" data-ms="-- Pilih Waktu --" data-en="-- Select Time --">-- Pilih Waktu --</option>
+            <option data-ms="Pagi (9am – 12pm)" data-en="Morning (9am – 12pm)">Pagi (9am – 12pm)</option>
+            <option data-ms="Tengahari (12pm – 3pm)" data-en="Afternoon (12pm – 3pm)">Tengahari (12pm – 3pm)</option>
+            <option data-ms="Petang (3pm – 6pm)" data-en="Evening (3pm – 6pm)">Petang (3pm – 6pm)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label data-ms="Pilih Terapis" data-en="Select Therapist">Pilih Terapis</label>
+        <select id="f-therapist">
+          <option value="" data-ms="-- Pilih Terapis --" data-en="-- Select Therapist --">-- Pilih Terapis --</option>
+          <option>Puan Nieza (Exclusive)</option>
+          <option>Terapis Ainaa (Platinum)</option>
+          <option>Terapis Fee / Miza (Premium)</option>
+          <option data-ms="Tiada Keutamaan" data-en="No Preference">Tiada Keutamaan</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-ms="Catatan / Keadaan Kesihatan" data-en="Notes / Health Conditions">Catatan / Keadaan Kesihatan</label>
+        <textarea id="f-notes" data-ms-placeholder="Nyatakan sebarang keadaan kesihatan, alahan, atau maklumat tambahan..." data-en-placeholder="Please mention any health conditions, allergies, or additional information..." placeholder="Nyatakan sebarang keadaan kesihatan, alahan, atau maklumat tambahan..."></textarea>
+      </div>
+      <button class="form-submit" onclick="handleBooking()">
+        <span data-ms="Hantar Temujanji →" data-en="Submit Appointment →">Hantar Temujanji →</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="hubungi">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal"><span data-ms="Hubungi Kami" data-en="Contact Us">Hubungi Kami</span></div>
+    <h2 class="section-title reveal" data-ms="Kami Sedia Membantu" data-en="We're Here to Help">Kami Sedia Membantu</h2>
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <div class="contact-label" data-ms="Alamat" data-en="Address">Alamat</div>
+            <div class="contact-value">Unit 10, Grd Floor, Block B, Kompleks Pg Hj Damit PS, Simpang 209, Berakas Link Road, Kampong Lambak Kanan, Berakas A, Brunei Muara, BB1714</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.12-1.12a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div>
+            <div class="contact-label">WhatsApp</div>
+            <div class="contact-value"><a href="https://wa.me/6738739424">+673 873 9424</a></div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          <div>
+            <div class="contact-label">Instagram</div>
+            <div class="contact-value"><a href="#">@zahracallistahomemade_official</a><br><a href="#">@zahracallistahomemade_hq</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="map-box reveal-right">
+        <div class="map-label">
+          Unit 10, Grd Floor, Block B<br>Kompleks Pg Hj Damit PS<br>Berakas A, Brunei Muara<br><br>
+          <a href="https://wa.me/6738739424" style="color:var(--gold);text-decoration:none;font-style:normal;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--gold);padding:.5rem 1.2rem;" data-ms="📍 Tanya Jalan via WhatsApp" data-en="📍 Get Directions via WhatsApp">📍 Tanya Jalan via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Zahra <em style="font-style:italic;color:var(--gold);">Callista</em></div>
+  <div class="footer-tagline">Sihat · Anggun · Menawan</div>
+  <div class="footer-social">
+    <a href="https://wa.me/6738739424">WhatsApp</a>
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+  </div>
+  <div class="footer-copy">© 2026 Zahra Callista Homemade · Brunei Darussalam</div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/6738739424" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+  <div class="wa-tooltip" data-ms="Chat dengan kami!" data-en="Chat with us!">Chat dengan kami!</div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// ── LANGUAGE SYSTEM ──
+let currentLang = 'ms';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('btn-ms').classList.toggle('active', lang === 'ms');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+  document.querySelectorAll('[data-ms],[data-en]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = el.getAttribute('data-' + lang + '-placeholder') || text;
+      } else {
+        el.textContent = text;
+      }
+    }
+  });
+
+  // Update textarea placeholder specifically
+  const notes = document.getElementById('f-notes');
+  if (notes) {
+    notes.placeholder = lang === 'ms'
+      ? 'Nyatakan sebarang keadaan kesihatan, alahan, atau maklumat tambahan...'
+      : 'Please mention any health conditions, allergies, or additional information...';
+  }
+}
+
+// ── SCROLL PROGRESS ──
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const progress = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = progress + '%';
+
+  // Nav shrink
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+});
+
+// ── INTERSECTION OBSERVER (scroll animations) ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Counter animation for stat numbers
+      if (entry.target.hasAttribute('data-target')) {
+        animateCounter(entry.target);
+      }
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
+
+// Also observe stat nums
+document.querySelectorAll('.stat-num[data-target]').forEach(el => observer.observe(el));
+
+// ── COUNTER ANIMATION ──
+function animateCounter(el) {
+  const target = parseInt(el.getAttribute('data-target'));
+  const suffix = target >= 2000 ? '+' : target >= 40 ? '+' : '+';
+  let current = 0;
+  const increment = target / 60;
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = Math.floor(current).toLocaleString() + suffix;
+  }, 25);
+}
+
+// ── BOOKING ──
+function handleBooking() {
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const treatment = document.getElementById('f-treatment').value;
+
+  if (!name || !phone || !treatment) {
+    alert(currentLang === 'ms'
+      ? 'Sila lengkapkan nama, nombor telefon, dan pilihan rawatan anda.'
+      : 'Please fill in your name, phone number, and selected treatment.');
+    return;
+  }
+
+  const ref = 'ZC-' + Date.now().toString(36).toUpperCase().slice(-6);
+  const date = document.getElementById('f-date').value || '-';
+  const time = document.getElementById('f-time').value || '-';
+  const therapist = document.getElementById('f-therapist').value || '-';
+  const notes = document.getElementById('f-notes').value || '-';
+
+  const alertMsg = currentLang === 'ms'
+    ? `✅ Temujanji berjaya dihantar!\n\nNo. Rujukan: ${ref}\n\nKami akan menghubungi anda via WhatsApp dalam masa 24 jam. Terima kasih!`
+    : `✅ Appointment submitted!\n\nRef No: ${ref}\n\nWe'll contact you via WhatsApp within 24 hours. Thank you!`;
+
+  alert(alertMsg);
+
+  const waMsg = encodeURIComponent(
+    `✨ *ZAHRA CALLISTA – TEMUJANJI BARU*\n\n` +
+    `Ref: ${ref}\nNama: ${name}\nTelefon: ${phone}\nRawatan: ${treatment}\nTarikh: ${date}\nWaktu: ${time}\nTerapis: ${therapist}\nCatatan: ${notes}`
+  );
+  window.open(`https://wa.me/6738739424?text=${waMsg}`, '_blank');
+}
+
+// ── SMOOTH NAV SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
