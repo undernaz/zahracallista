@@ -1,204 +1,3 @@
-
-Claude finished the response
-If the booking ended on 6:00pm is okey.. and if the booking ended past 9:00pm is okey before 10pm is  okey
-
-Got it! Updated rules:
-
-✅ Slot can END at exactly 6:00pm
-✅ Slot can END between 9:00pm - 10:00pm
-🚫 No slot can START between 6:00pm - 7:00pm (solat block)
-🚫 No slot can END past 10:00pm
-Example — Pakej Vertigo Platinum (1h 45m):
-
-9:00am ✅ → ends 10:45am + 30min break = next at 11:15am
-11:15am ✅ → ends 1:00pm + 30min break = next at 1:30pm
-1:30pm ✅ → ends 3:15pm + 30min break = next at 3:45pm
-3:45pm ✅ → ends 5:30pm + 30min break = next at 6:00pm ❌ (solat START block)
-7:00pm ✅ → ends 8:45pm + 30min break = next at 9:15pm ✅
-9:15pm ✅ → ends 11:00pm ❌ past 10pm
-Example — Pakej Keguguran Exclusive (2h 30m):
-
-9:00am ✅ → ends 11:30am + 30min = next at 12:00pm
-12:00pm ✅ → ends 2:30pm + 30min = next at 3:00pm
-3:00pm ✅ → ends 5:30pm + 30min = next at 6:00pm ❌ (solat)
-3:30pm ✅ → ends 6:00pm ✅ (ends exactly at 6, ok!)
-7:00pm ✅ → ends 9:30pm ✅ (before 10pm)
-7:30pm ✅ → ends 10:00pm ✅ (exactly 10pm, ok?)
-8:00pm ❌ → ends 10:30pm (past 10pm)
-Is this correct now?
-
-Yes.. make the page fit the mobile view because they will using mobile to open view and manage their booking session..
-
-
-Architected mobile-first booking system with therapist portal integration
-Architected mobile-first booking system with therapist portal integration
-Got it — mobile-first for both the therapist portal and the booking form. Let me build everything properly. Starting with the database schema updates, then the mobile UI.
-
-
-Used 4 tools, loaded tools
-Used 4 tools, loaded tools
-Now add default therapist schedules and rebuild the full app:
-
-
-Grappled with required field validation and schema constraints
-Grappled with required field validation and schema constraints
-Schedules added! Now rebuild the full app with mobile-first design + therapist role + smart booking:
-
-Connector not found
-Building now → Base44 Editor
-
-Here's what's being built:
-
-Database — 3 schema updates done ✅
-
-TherapistSchedule — working days, hours, evening shift toggle
-TherapistOffDay — specific blocked dates per therapist
-Appointment — now has start_time, end_time, duration_minutes
-Admin Panel (mobile)
-
-Bottom tab navigation
-Dashboard with today's schedule
-Bookings as tap-to-expand cards
-Products with visibility toggle
-Staff with schedule management
-Revenue with payment tracking
-Therapist Portal (mobile)
-
-Their own bookings view
-Set working days on/off
-Add/remove off days with date picker
-Smart booking logic
-
-30 min break after each session
-6pm–7pm solat block
-Ends at 6pm = allowed
-Ends before 10pm = allowed
-Filters off days + existing bookings
-Give it 5 mins then check! 🎯
-
-did u finish build this app?
-
-
-Assessed app completion status and reviewed progress
-Assessed app completion status and reviewed progress
-Let me check the current status!
-
-
-Assessed database readiness and identified incomplete UI build issues
-Assessed database readiness and identified incomplete UI build issues
-Honest answer — the database is ready but the UI might not be fully built yet. Here's what I can confirm:
-
-✅ Done (database side):
-
-TherapistOffDay entity ✅
-TherapistSchedule entity ✅
-User entity with roles (admin/therapist/user) ✅
-All products, staff, bookings data ✅
-⚠️ Issues I see:
-
-Appointment schema still has old fields — my update didn't fully apply
-Still has therapist_preference with "Premium" in it (should be Platinum)
-Missing start_time, end_time, duration_minutes
-For the UI — I can't confirm if Base44 built it properly without you checking.
-
-Can you open the editor and tell me what you see?
-
-👉 Base44 Editor
-
-Tell me:
-
-Does it show a login screen?
-After login, do you see tabs at the bottom?
-Do products/bookings load?
-Based on what you see, I'll fix exactly what's broken rather than rebuilding blindly again.
-
-Issue 2026.pdf
-pdf
-
-update the pages with this info
-
-
-Catalogued extensive product inventory and identified necessary database updates
-Catalogued extensive product inventory and identified necessary database updates
-Big update! I can see the full catalog now. There are many more products and some price corrections too. Let me update everything — database first, then the landing page.
-
-What I see that needs updating:
-
-Lulur prices: $16 (not $18)
-Garam Mandian: $26 (not $22)
-New categories: Jamu/Jus, Minyak, Sugar Scrub, Gel Mandian, Sabun, Set Penjagaan Mahkota, Kudapan
-Let me start!
-
-
-Hunted for specialized Base44 tool functionality
-Hunted for specialized Base44 tool functionality
-Let me add all the new products directly to the database now!
-
-
-Troubleshooting tool failures and reassessing context constraints
-Troubleshooting tool failures and reassessing context constraints
-The Base44 tools are having session issues. Let me update what I can right now — the HTML landing page with all new products and correct prices, then push to GitHub.
-
-
-Edited 2 files, viewed 2 files, ran a command
-Edited 2 files, viewed 2 files, ran a command
-Now replace the rest of the old product cards and close with the full catalog:
-
-
-Replace remaining old product cards with full catalog
-Replace remaining old product cards with full catalog
-Now push to GitHub!
-
-
-Identified expired token and devised alternative upload solutions
-Identified expired token and devised alternative upload solutions
-The GitHub token has expired again. Two options:
-
-Option 1 — New token (quick):
-
-Go to github.com/settings/tokens/new
-Note: zahracallista, Expiration: 90 days, tick ✅ repo
-Paste token here
-Option 2 — Manual upload (no token needed):
-
-Go to github.com/undernaz/zahracallista
-Click index.html → click the ✏️ pencil (edit)
-Select all → delete → paste the new file content
-Click Commit changes
-Download the updated file here to upload manually:
-
-
-Presented file
-Presented file
-
-Presented file
-Done
-Here's what was updated from the catalog PDF 👆:
-
-10 product categories now on the website:
-
-Category	Products	Price
-Lulur	6 variants	$16 each
-Garam Mandian	4 variants	$26 each
-Sugar Scrub	4 variants	$24 each
-Gel Mandian	7 variants	$18 each
-Minyak	6 variants	$12–$39.90
-Sabun	3 variants	$15.90–$26
-Jamu & Jus	7 variants	$7–$25
-Penjagaan Mahkota	4 variants	$12–$26
-Kudapan	3 variants	$21–$27
-Plus a filter tab system so visitors can browse by category easily!
-
-
-
-
-
-
-
-Claude is AI and can make mistakes. Please double-check responses.
-
-
-Zahra callista v2 · HTML
 <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -208,7 +7,7 @@ Zahra callista v2 · HTML
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
- 
+
 :root {
   --crimson: #7A1020;
   --crimson-deep: #4A0810;
@@ -222,10 +21,10 @@ Zahra callista v2 · HTML
   --text-mid: #4A2030;
   --text-muted: #7A5060;
 }
- 
+
 html { scroll-behavior: smooth; }
 body { font-family: 'Nunito Sans', sans-serif; background: var(--warm-white); color: var(--text-dark); overflow-x: hidden; }
- 
+
 /* ── LANGUAGE TOGGLE ── */
 .lang-bar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
@@ -243,7 +42,7 @@ body { font-family: 'Nunito Sans', sans-serif; background: var(--warm-white); co
 }
 .lang-btn.active { background: var(--gold); color: var(--crimson-deep); border-color: var(--gold); font-weight: 600; }
 .lang-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
- 
+
 /* ── NAV ── */
 nav {
   position: fixed; top: 28px; left: 0; right: 0; z-index: 100;
@@ -264,7 +63,7 @@ nav.scrolled { padding: 0.7rem 3rem; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
 .nav-links a:hover::after { transform: scaleX(1); }
 .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold-light); padding: 0.5rem 1.4rem; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; text-decoration: none; font-family: 'Nunito Sans', sans-serif; }
 .nav-cta:hover { background: var(--gold); color: var(--crimson-deep); }
- 
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -277,7 +76,7 @@ nav.scrolled { padding: 0.7rem 3rem; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
 @keyframes counterUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes lineDraw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
- 
+
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -286,14 +85,14 @@ nav.scrolled { padding: 0.7rem 3rem; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
 .reveal-right.visible { opacity: 1; transform: translateX(0); }
 .reveal-scale { opacity: 0; transform: scale(0.93); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal-scale.visible { opacity: 1; transform: scale(1); }
- 
+
 .stagger-1 { transition-delay: 0.1s; }
 .stagger-2 { transition-delay: 0.2s; }
 .stagger-3 { transition-delay: 0.3s; }
 .stagger-4 { transition-delay: 0.4s; }
 .stagger-5 { transition-delay: 0.5s; }
 .stagger-6 { transition-delay: 0.6s; }
- 
+
 /* ── HERO ── */
 .hero {
   min-height: 100vh;
@@ -396,7 +195,7 @@ nav.scrolled { padding: 0.7rem 3rem; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
 .divider-gold { height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 1.5rem 0; }
 .hero-since { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; color: rgba(255,255,255,0.55); text-align: center; letter-spacing: 0.05em; }
 .hero-since strong { color: var(--gold-light); font-style: normal; font-weight: 400; }
- 
+
 /* ── TICKER ── */
 .ticker-wrap {
   background: var(--gold); padding: 0.6rem 0; overflow: hidden;
@@ -412,7 +211,7 @@ nav.scrolled { padding: 0.7rem 3rem; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
 }
 .ticker-sep { color: var(--crimson); margin: 0 0.5rem; }
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
- 
+
 /* ── SECTIONS ── */
 section { padding: 6rem 3rem; }
 .section-inner { max-width: 1100px; margin: 0 auto; }
@@ -427,7 +226,7 @@ section { padding: 6rem 3rem; }
   font-weight: 700; color: var(--crimson-deep); line-height: 1.2; margin-bottom: 1rem;
 }
 .section-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--text-muted); max-width: 520px; }
- 
+
 /* ── STORY ── */
 .story-section { background: var(--cream); }
 .story-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: center; margin-top: 3rem; }
@@ -447,7 +246,7 @@ section { padding: 6rem 3rem; }
 .milestone:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(122,16,32,0.08); }
 .milestone-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--crimson); display: block; }
 .milestone-text { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.3rem; }
- 
+
 /* ── PRODUCTS ── */
 .products-section { background: var(--warm-white); }
 .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.5rem; margin-top: 2.5rem; }
@@ -484,7 +283,7 @@ section { padding: 6rem 3rem; }
 }
 .btn-wa::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0); transition: background 0.3s; }
 .btn-wa:hover { background: var(--crimson-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(122,16,32,0.3); }
- 
+
 /* ── PROMO ── */
 .promo-section { background: var(--crimson-deep); padding: 5rem 3rem; }
 .promo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1.5rem; max-width: 1100px; margin: 3rem auto 0; }
@@ -500,7 +299,7 @@ section { padding: 6rem 3rem; }
 .promo-price { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: white; font-weight: 700; }
 .promo-price .vip { color: var(--gold); font-size: 0.72rem; font-family: 'Nunito Sans', sans-serif; display: block; font-weight: 400; letter-spacing: 0.08em; margin-top: 0.2rem; }
 .promo-validity { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-top: 1rem; }
- 
+
 /* ── TREATMENTS ── */
 .treatments-section { background: var(--cream); }
 .treatment-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1.5rem; margin-top: 3rem; }
@@ -516,7 +315,7 @@ section { padding: 6rem 3rem; }
 .treatment-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--crimson-deep); margin-bottom: 0.6rem; }
 .treatment-desc { font-size: 0.83rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.2rem; }
 .treatment-duration { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border-top: 1px solid rgba(201,168,76,0.15); padding-top: 1rem; }
- 
+
 /* ── TESTIMONIALS ── */
 .testimonials-section { background: var(--warm-white); }
 .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1.5rem; margin-top: 3rem; }
@@ -533,7 +332,7 @@ section { padding: 6rem 3rem; }
 .author-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--crimson); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--gold-light); font-weight: 600; font-family: 'Nunito Sans', sans-serif; flex-shrink: 0; }
 .author-name { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
 .author-loc { font-size: 0.72rem; color: var(--text-muted); }
- 
+
 /* ── BOOKING ── */
 .booking-section { background: var(--crimson-deep); padding: 6rem 3rem; }
 .booking-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
@@ -552,7 +351,7 @@ section { padding: 6rem 3rem; }
 .form-group textarea { resize: vertical; min-height: 90px; }
 .form-submit { width: 100%; background: var(--crimson); color: white; border: none; padding: 1rem; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'Nunito Sans', sans-serif; font-weight: 600; cursor: pointer; transition: all 0.3s; margin-top: 0.5rem; position: relative; overflow: hidden; }
 .form-submit:hover { background: var(--crimson-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(122,16,32,0.3); }
- 
+
 /* ── THERAPISTS ── */
 .therapists-section { background: var(--cream); }
 .therapists-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
@@ -562,7 +361,7 @@ section { padding: 6rem 3rem; }
 .therapist-card:hover .therapist-avatar { box-shadow: 0 0 0 6px rgba(201,168,76,0.15); }
 .therapist-tier { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
 .therapist-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--crimson-deep); font-weight: 700; }
- 
+
 /* ── CONTACT ── */
 .contact-section { background: var(--warm-white); }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
@@ -575,7 +374,7 @@ section { padding: 6rem 3rem; }
 .map-box { background: var(--crimson-deep); height: 280px; display: flex; align-items: center; justify-content: center; position: relative; }
 .map-box::before { content: ''; position: absolute; inset: 16px; border: 1px solid rgba(201,168,76,0.18); pointer-events: none; }
 .map-label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: rgba(255,255,255,0.4); text-align: center; padding: 1rem; line-height: 1.8; }
- 
+
 /* ── FOOTER ── */
 footer { background: var(--crimson-deep); padding: 3rem; text-align: center; border-top: 1px solid rgba(201,168,76,0.12); }
 .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold-light); margin-bottom: 0.5rem; }
@@ -584,7 +383,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
 .footer-social a { color: rgba(255,255,255,0.45); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 0.3s; }
 .footer-social a:hover { color: var(--gold); }
 .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
- 
+
 /* ── WHATSAPP FLOAT ── */
 .wa-float {
   position: fixed; bottom: 2rem; right: 2rem; z-index: 500;
@@ -603,10 +402,10 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
   font-family: 'Nunito Sans', sans-serif;
 }
 .wa-float:hover .wa-tooltip { opacity: 1; }
- 
+
 /* ── PROGRESS BAR ── */
 .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--gold); z-index: 999; width: 0%; transition: width 0.1s; }
- 
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .lang-bar { padding: 0.35rem 1rem; }
@@ -619,22 +418,22 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
   .therapists-grid { grid-template-columns: 1fr; }
   .promo-section, .booking-section { padding: 4rem 1.5rem; }
 }
- 
+
 /* ── BILINGUAL ── */
 [data-en], [data-ms] { transition: opacity 0.3s; }
 </style>
 </head>
 <body>
- 
+
 <!-- PROGRESS BAR -->
 <div class="progress-bar" id="progressBar"></div>
- 
+
 <!-- LANG BAR -->
 <div class="lang-bar">
   <button class="lang-btn active" onclick="setLang('ms')" id="btn-ms">BM</button>
   <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
 </div>
- 
+
 <!-- NAV -->
 <nav id="navbar">
   <div class="nav-logo">Zahra <span>Callista</span></div>
@@ -647,7 +446,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
   </ul>
   <a href="#booking" class="nav-cta" data-ms="Buat Temujanji" data-en="Book Now">Buat Temujanji</a>
 </nav>
- 
+
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-orb1"></div>
@@ -706,7 +505,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
     </div>
   </div>
 </section>
- 
+
 <!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker">
@@ -728,7 +527,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
     <span class="ticker-item">✦ Traditional Recipes</span>
   </div>
 </div>
- 
+
 <!-- STORY -->
 <section class="story-section" id="tentang">
   <div class="section-inner">
@@ -769,7 +568,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
     </div>
   </div>
 </section>
- 
+
 <!-- PRODUCTS -->
 <section class="products-section" id="produk">
   <div class="section-inner">
@@ -788,10 +587,12 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
       <button onclick="filterCat('jamu')" id="cat-jamu" style="padding:0.45rem 1rem;background:transparent;color:var(--text-muted);border:1px solid rgba(201,168,76,0.25);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;font-family:'Nunito Sans',sans-serif;transition:all 0.3s;">Jamu & Jus</button>
       <button onclick="filterCat('mahkota')" id="cat-mahkota" style="padding:0.45rem 1rem;background:transparent;color:var(--text-muted);border:1px solid rgba(201,168,76,0.25);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;font-family:'Nunito Sans',sans-serif;transition:all 0.3s;">Penjagaan Mahkota</button>
       <button onclick="filterCat('kudapan')" id="cat-kudapan" style="padding:0.45rem 1rem;background:transparent;color:var(--text-muted);border:1px solid rgba(201,168,76,0.25);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;font-family:'Nunito Sans',sans-serif;transition:all 0.3s;">Kudapan</button>
+      <button onclick="filterCat('masker')" id="cat-masker" style="padding:0.45rem 1rem;background:transparent;color:var(--text-muted);border:1px solid rgba(201,168,76,0.25);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;font-family:'Nunito Sans',sans-serif;transition:all 0.3s;">Masker</button>
+      <button onclick="filterCat('lain')" id="cat-lain" style="padding:0.45rem 1rem;background:transparent;color:var(--text-muted);border:1px solid rgba(201,168,76,0.25);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;font-family:'Nunito Sans',sans-serif;transition:all 0.3s;">Produk Lain</button>
     </div>
- 
+
     <div class="products-grid" id="products-grid">
- 
+
       <!-- LULUR $16 each -->
       <div class="product-card reveal stagger-1" data-cat="lulur">
         <div class="product-cat-badge">✦ Lulur</div>
@@ -800,7 +601,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
         <p class="product-desc">Membantu menyerlahkan seri semula jadi, menjadikan kulit lebih bersih, lembut, harum dan meningkatkan keyakinan diri.</p>
         <a href="https://wa.me/6738739424?text=Saya%20berminat%20Lulur%20Seri%20Aura" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
       </div>
- 
+
       <div class="product-card reveal stagger-2" data-cat="lulur">
         <div class="product-cat-badge">✦ Lulur</div>
         <h3 class="product-name">Lulur Seri Wajah</h3>
@@ -836,7 +637,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
         <p class="product-desc">Dirumus daripada gabungan herba tradisional dan bahan semula jadi untuk pengalaman spa di rumah.</p>
         <a href="https://wa.me/6738739424?text=Saya%20berminat%20Lulur%20Bunga%20Kasih" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
       </div>
- 
+
       <!-- GARAM MANDIAN $26 each -->
       <div class="product-card reveal stagger-1" data-cat="garam">
         <div class="product-cat-badge">✦ Garam Mandian</div>
@@ -866,7 +667,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
         <p class="product-desc">Haruman eksklusif yang mencipta suasana romantik dan membantu anda berasa lebih segar dan dekat bersama pasangan.</p>
         <a href="https://wa.me/6738739424?text=Saya%20berminat%20Garam%20Mandian%20Luxury%20Love" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
       </div>
- 
+
       <!-- SUGAR SCRUB $24 each -->
       <div class="product-card reveal stagger-1" data-cat="sugar">
         <div class="product-cat-badge">✦ Sugar Scrub</div>
@@ -896,7 +697,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
         <p class="product-desc">Haruman bunga sedap malam yang memikat, menjadikan kulit lembut dan harum untuk momen istimewa bersama pasangan.</p>
         <a href="https://wa.me/6738739424?text=Saya%20berminat%20Sugar%20Scrub%20Sedap%20Malam" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
       </div>
- 
+
       <!-- GEL MANDIAN $18 each -->
       <div class="product-card reveal stagger-1" data-cat="gel">
         <div class="product-cat-badge">✦ Gel Mandian</div>
@@ -947,7 +748,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
         <p class="product-desc">Diperkaya dengan haruman mint yang menyegarkan untuk pengalaman mandian yang nyaman dan meninggalkan aroma memikat.</p>
         <a href="https://wa.me/6738739424?text=Saya%20berminat%20Gel%20Mandian%20Pengasih%20Cinta%20Berduri" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
       </div>
- 
+
       <!-- MINYAK -->
       <div class="product-card reveal stagger-1" data-cat="minyak">
         <div class="product-cat-badge">✦ Minyak</div>
@@ -991,7 +792,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
         <p class="product-desc">Minyak herba premium dengan haruman sedap malam yang memikat untuk pengalaman urutan yang istimewa.</p>
         <a href="https://wa.me/6738739424?text=Saya%20berminat%20Minyak%20Urut%20Sedap%20Malam" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
       </div>
- 
+
       <!-- SABUN -->
       <div class="product-card reveal stagger-1" data-cat="sabun">
         <div class="product-cat-badge">✦ Sabun</div>
@@ -1014,7 +815,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
         <p class="product-desc">Gabungan ekstrak daun bidara yang membersihkan kulit secara lembut dan memberikan kesegaran semula jadi.</p>
         <a href="https://wa.me/6738739424?text=Saya%20berminat%20Sabun%20Bidara" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
       </div>
- 
+
       <!-- JAMU & JUS -->
       <div class="product-card reveal stagger-1" data-cat="jamu">
         <div class="product-cat-badge">✦ Jamu & Jus</div>
@@ -1065,7 +866,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
         <p class="product-desc">Herba tradisional kaya antioksidan untuk kesihatan lelaki, meningkatkan kecergasan dan mengekalkan tubuh bertenaga.</p>
         <a href="https://wa.me/6738739424?text=Saya%20berminat%20Jus%20Alitox" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
       </div>
- 
+
       <!-- SET PENJAGAAN MAHKOTA -->
       <div class="product-card reveal stagger-1" data-cat="mahkota">
         <div class="product-cat-badge">✦ Penjagaan Mahkota</div>
@@ -1095,7 +896,46 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
         <p class="product-desc">Diformulasikan untuk mengekalkan kelembapan dan melindungi kulit kawasan feminin daripada rasa kering.</p>
         <a href="https://wa.me/6738739424?text=Saya%20berminat%20Minyak%20V%20Grip" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
       </div>
- 
+
+      <!-- MASKER -->
+      <div class="product-card reveal stagger-1" data-cat="masker">
+        <div class="product-cat-badge">✦ Masker</div>
+        <h3 class="product-name">Masker Montok</h3>
+        <div class="product-price">$25.00</div>
+        <p class="product-desc">Untuk wanita: menghaluskan dan mengenyalkan payudara & punggung, mencegah kendur, melancarkan peredaran darah, mencerahkan kulit secara alami.</p>
+        <a href="https://wa.me/6738739424?text=Saya%20berminat%20Masker%20Montok" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
+      </div>
+      <div class="product-card reveal stagger-2" data-cat="masker">
+        <div class="product-cat-badge">✦ Masker</div>
+        <h3 class="product-name">Masker Resdung</h3>
+        <div class="product-price">$20.00</div>
+        <p class="product-desc">Mengurangkan masalah resdung, jerawat, gatal-gatal di wajah dan masalah sensitif kulit muka. Campurkan sedikit air, biarkan 5 minit.</p>
+        <a href="https://wa.me/6738739424?text=Saya%20berminat%20Masker%20Resdung" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
+      </div>
+
+      <!-- PRODUK LAIN -->
+      <div class="product-card reveal stagger-1" data-cat="lain">
+        <div class="product-cat-badge">✦ Produk Lain</div>
+        <h3 class="product-name">Balsam Baby</h3>
+        <div class="product-price">$15.00</div>
+        <p class="product-desc">Khas untuk bayi: melegakan batuk & selesma, mengurangkan kering kahak, menyuburkan rambut, meningkatkan imuniti, membantu redakan cirit birit & sembelit.</p>
+        <a href="https://wa.me/6738739424?text=Saya%20berminat%20Balsam%20Baby" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
+      </div>
+      <div class="product-card reveal stagger-2" data-cat="lain">
+        <div class="product-cat-badge">✦ Produk Lain</div>
+        <h3 class="product-name">Coconut Hair Treatment</h3>
+        <div class="product-price">$28.00</div>
+        <p class="product-desc">Untuk wanita & lelaki: melebat & melembutkan rambut, mengatasi rambut gugur, menghitamkan uban, menyegarkan kulit kepala, mengurangkan migraine & sakit kepala.</p>
+        <a href="https://wa.me/6738739424?text=Saya%20berminat%20Coconut%20Hair%20Treatment" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
+      </div>
+      <div class="product-card reveal stagger-3" data-cat="lain">
+        <div class="product-cat-badge">✦ Produk Lain</div>
+        <h3 class="product-name">Pilis Kering</h3>
+        <div class="product-price">$12.00</div>
+        <p class="product-desc">Pilis dahi untuk wanita berpantang & lelaki: meredakan pening kepala, mencegah migraine, melancarkan peredaran darah, menyegarkan mata & menghalang darah putih naik ke kepala.</p>
+        <a href="https://wa.me/6738739424?text=Saya%20berminat%20Pilis%20Kering" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
+      </div>
+
       <!-- KUDAPAN -->
       <div class="product-card reveal stagger-1" data-cat="kudapan">
         <div class="product-cat-badge">✦ Kudapan</div>
@@ -1118,9 +958,9 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
         <p class="product-desc">Herba tradisional dan buah-buahan pilihan yang membantu melancarkan pembuangan dan memberikan rasa ringan.</p>
         <a href="https://wa.me/6738739424?text=Saya%20berminat%20Jamu%20Janda%20Perawan" class="btn-wa" target="_blank">📱 Order via WhatsApp</a>
       </div>
- 
+
     </div>
- 
+
     <script>
     function filterCat(cat) {
       const cards = document.querySelectorAll('#products-grid .product-card');
@@ -1133,7 +973,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
     </script>
   </div>
 </section>
- 
+
 <!-- PROMO -->
 <section class="promo-section" id="promo">
   <div class="section-inner" style="max-width:1100px;margin:0 auto;">
@@ -1184,7 +1024,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
     </div>
   </div>
 </section>
- 
+
 <!-- TREATMENTS -->
 <section class="treatments-section" id="rawatan">
   <div class="section-inner">
@@ -1231,7 +1071,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
     </div>
   </div>
 </section>
- 
+
 <!-- TESTIMONIALS -->
 <section class="testimonials-section" id="testimoni">
   <div class="section-inner">
@@ -1272,7 +1112,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
     </div>
   </div>
 </section>
- 
+
 <!-- THERAPISTS -->
 <section class="therapists-section">
   <div class="section-inner">
@@ -1300,7 +1140,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
     </div>
   </div>
 </section>
- 
+
 <!-- BOOKING -->
 <section class="booking-section" id="booking">
   <div class="booking-inner">
@@ -1404,7 +1244,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
     </div>
   </div>
 </section>
- 
+
 <!-- CONTACT -->
 <section class="contact-section" id="hubungi">
   <div class="section-inner">
@@ -1443,7 +1283,7 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
     </div>
   </div>
 </section>
- 
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Zahra <em style="font-style:italic;color:var(--gold);">Callista</em></div>
@@ -1455,22 +1295,22 @@ footer { background: var(--crimson-deep); padding: 3rem; text-align: center; bor
   </div>
   <div class="footer-copy">© 2026 Zahra Callista Homemade · Brunei Darussalam</div>
 </footer>
- 
+
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/6738739424" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
   <div class="wa-tooltip" data-ms="Chat dengan kami!" data-en="Chat with us!">Chat dengan kami!</div>
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
 </a>
- 
+
 <script>
 // ── LANGUAGE SYSTEM ──
 let currentLang = 'ms';
- 
+
 function setLang(lang) {
   currentLang = lang;
   document.getElementById('btn-ms').classList.toggle('active', lang === 'ms');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
- 
+
   document.querySelectorAll('[data-ms],[data-en]').forEach(el => {
     const text = el.getAttribute('data-' + lang);
     if (text) {
@@ -1481,7 +1321,7 @@ function setLang(lang) {
       }
     }
   });
- 
+
   // Update textarea placeholder specifically
   const notes = document.getElementById('f-notes');
   if (notes) {
@@ -1490,17 +1330,17 @@ function setLang(lang) {
       : 'Please mention any health conditions, allergies, or additional information...';
   }
 }
- 
+
 // ── SCROLL PROGRESS ──
 window.addEventListener('scroll', () => {
   const doc = document.documentElement;
   const progress = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
   document.getElementById('progressBar').style.width = progress + '%';
- 
+
   // Nav shrink
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
 });
- 
+
 // ── INTERSECTION OBSERVER (scroll animations) ──
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -1513,12 +1353,12 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.15 });
- 
+
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
- 
+
 // Also observe stat nums
 document.querySelectorAll('.stat-num[data-target]').forEach(el => observer.observe(el));
- 
+
 // ── COUNTER ANIMATION ──
 function animateCounter(el) {
   const target = parseInt(el.getAttribute('data-target'));
@@ -1534,39 +1374,39 @@ function animateCounter(el) {
     el.textContent = Math.floor(current).toLocaleString() + suffix;
   }, 25);
 }
- 
+
 // ── BOOKING ──
 function handleBooking() {
   const name = document.getElementById('f-name').value.trim();
   const phone = document.getElementById('f-phone').value.trim();
   const treatment = document.getElementById('f-treatment').value;
- 
+
   if (!name || !phone || !treatment) {
     alert(currentLang === 'ms'
       ? 'Sila lengkapkan nama, nombor telefon, dan pilihan rawatan anda.'
       : 'Please fill in your name, phone number, and selected treatment.');
     return;
   }
- 
+
   const ref = 'ZC-' + Date.now().toString(36).toUpperCase().slice(-6);
   const date = document.getElementById('f-date').value || '-';
   const time = document.getElementById('f-time').value || '-';
   const therapist = document.getElementById('f-therapist').value || '-';
   const notes = document.getElementById('f-notes').value || '-';
- 
+
   const alertMsg = currentLang === 'ms'
     ? `✅ Temujanji berjaya dihantar!\n\nNo. Rujukan: ${ref}\n\nKami akan menghubungi anda via WhatsApp dalam masa 24 jam. Terima kasih!`
     : `✅ Appointment submitted!\n\nRef No: ${ref}\n\nWe'll contact you via WhatsApp within 24 hours. Thank you!`;
- 
+
   alert(alertMsg);
- 
+
   const waMsg = encodeURIComponent(
     `✨ *ZAHRA CALLISTA – TEMUJANJI BARU*\n\n` +
     `Ref: ${ref}\nNama: ${name}\nTelefon: ${phone}\nRawatan: ${treatment}\nTarikh: ${date}\nWaktu: ${time}\nTerapis: ${therapist}\nCatatan: ${notes}`
   );
   window.open(`https://wa.me/6738739424?text=${waMsg}`, '_blank');
 }
- 
+
 // ── SMOOTH NAV SCROLL ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
@@ -1580,5 +1420,3 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 </script>
 </body>
 </html>
- 
-
